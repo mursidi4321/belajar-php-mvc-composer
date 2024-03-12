@@ -1,0 +1,9 @@
+{
+    "name": "sescomreload/php-mvc-framework-2nd",
+    "autoload": {
+        "psr-4": {
+            "app\\" : "./"
+        }
+    },
+    "require": {}
+}
