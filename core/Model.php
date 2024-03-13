@@ -1,7 +1,7 @@
 <?php 
 namespace app\core;
 
-use Attribute;
+// use Attribute;
 
 abstract class Model {
     public const RULE_REQUIRED = 'required';
@@ -19,13 +19,15 @@ abstract class Model {
     }
 
     abstract public function rules(): array;
+
     public array $errors = [];
+
     public function validate(){
         foreach($this->rules() as $attribute => $rules){
             $value = $this->{$attribute};
             foreach($rules as $rule){
                 $ruleName = $rule;
-                if(!is_string($rule)){
+                if(!is_string($ruleName)){
                     $ruleName = $rule[0];
                 }
                 if($ruleName === self::RULE_REQUIRED && !$value){
@@ -45,6 +47,7 @@ abstract class Model {
                 } 
             }
         }
+       
         return empty($this->errors);
     }
 
@@ -53,7 +56,7 @@ abstract class Model {
        foreach($params as $key => $value){
             $message = str_replace("{{$key}}", $value, $message);
        }
-       $this->errors[$attribute][] = $message;
+        $this->errors[$attribute][] = $message;
     }
 
     public function errorMessage(){
@@ -65,9 +68,10 @@ abstract class Model {
             self::RULE_MATCH => 'This field must be the same as {match}',
         ];
     }
-
     public function hasError($attribute){
         return $this->errors[$attribute] ?? false;
     }
+   
+   
 }
 ?>

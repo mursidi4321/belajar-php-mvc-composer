@@ -5,9 +5,7 @@
         <div class="col-lg-6">
             <div class="form-group">
                 <label>Firstname</label>
-                
-                <input type="text" name="firstname" value="<?php echo $model->firstname ?>"  class="form-control
-                <?php echo $model->hassError['firstname'] ?' is-invalid' : 'null'; ?> ">
+                <input type="text" value="<?= $model->firstname ?>" name="firstname"  class="form-control  <?php echo $model->hasError('firstname') ? ' is-invalid': null?>">
             </div>
         </div>
         <div class="col-lg-6">
