@@ -1,15 +1,14 @@
 <?php 
 
-require_once __DIR__ . '/../vendor/autoload.php';
-
-$dotenv = Dotenv\Dotenv::createImmutable(dirname(__DIR__));
-$dotenv->load();
-
 use app\controllers\AuthController;
 use app\controllers\SiteController;
 use app\controllers\KegiatanController;
 use app\core\Application;
-use app\core\Router;
+
+require_once __DIR__ . '/../vendor/autoload.php';
+$dotenv = Dotenv\Dotenv::createImmutable(dirname(__DIR__));
+$dotenv->load();
+
 
 $config = [
     'db' => [
