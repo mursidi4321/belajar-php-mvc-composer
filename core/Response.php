@@ -9,6 +9,10 @@ class Response {
     public function getBody(){
         
     }
+
+    public function redirect(string $url){
+        header('Location: '. $url);
+    }
 }
 
 ?>
