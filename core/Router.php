@@ -37,7 +37,7 @@ class Router {
         if(is_string($callback)){
             return $this->renderView($callback);
         }
-        return call_user_func($callback, $this->request);
+        return call_user_func($callback, $this->request, $this->response);
     }
 
     public function renderView($view, $params=[]){
