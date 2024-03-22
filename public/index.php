@@ -4,6 +4,7 @@ use app\controllers\AuthController;
 use app\controllers\SiteController;
 use app\controllers\KegiatanController;
 use app\core\Application;
+use app\core\middlewares\AuthMiddleware;
 use app\models\User;
 
 require_once __DIR__ . '/../vendor/autoload.php';
@@ -31,6 +32,8 @@ $app->router->post('/login', [AuthController::class, 'login']);
 $app->router->get('/register', [AuthController::class, 'register']);
 $app->router->post('/register', [AuthController::class, 'register']);
 $app->router->get('/logout', [AuthController::class, 'logout']);
+
+$app->router->get('/profile', [AuthController::class, 'profile']);
 
 
 
