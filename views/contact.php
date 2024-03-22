@@ -1,3 +1,7 @@
+<?php 
+$this->title = 'Contact';
+?>
+<h1>Contact Me</h1>
 <form action="" method="post">
   <div class="form-group">
     <label>Subject</label>
